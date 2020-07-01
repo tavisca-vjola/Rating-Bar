@@ -1,0 +1,12 @@
+:host {
+  --rating-bar-font-family: var(--global-font-family);
+  --rating-bar-font-weight: var(--font-weight-semi-bold);
+  --rating-bar-label-color: var(--primary-text);
+  --rating-bar-donut-rating-info-font-size: 1.4rem;
+  --rating-bar-background-color: var(--separator-01);
+  --rating-bar-donut-track-stroke-color: var(--separator-01);
+  --rating-bar-donut-margin: var(--spacing-03);
+}
+
+$rating-bar-donut-width: 40px;
+$rating-bar-donut-indicator-stroke-area: 113.04;

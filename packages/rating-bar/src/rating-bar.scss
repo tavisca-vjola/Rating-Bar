@@ -1,1 +1,60 @@
-@import './rating-bar-map.scss';
+@import "./rating-bar-map.scss";
+
+@mixin label-fonts {
+  color: var(--rating-bar-label-colo) r;
+  font-family: var(--rating-bar-font-family);
+  font-weight: var(--rating-bar-font-weight);
+}
+
+@mixin donut-rating-bar {
+  fill: none;
+  stroke-width: 4;
+}
+
+:host([type="linear"]) {
+  display: block;
+  width: $rating-bar-linear-width;
+}
+
+:host([type="donut"]) {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  width: $rating-bar-donut-width;
+  .donut-track__info {
+    position: absolute;
+  }
+}
+
+.donut-track__info {
+  @include label-fonts;
+  font-size: var(--rating-bar-donut-rating-info-font-size);
+}
+
+.donut {
+  position: relative;
+  transform: rotate(-90deg);
+  .donut-track {
+    stroke: var(--rating-bar-donut-track-stroke-color);
+    @include donut-rating-bar;
+  }
+  .donut-track__indicator {
+    @include donut-rating-bar;
+    stroke-dasharray: $rating-bar-donut-indicator-stroke-area;
+    &.donut-track--excellent {
+      stroke: var(--rating-bar-excellent);
+    }
+    &.donut-track--great {
+      stroke: var(--rating-bar-great);
+    }
+    &.donut-track--average {
+      stroke: var(--rating-bar-average);
+    }
+    &.donut-track--poor {
+      stroke: var(--rating-bar-poor);
+    }
+    &.donut-track--bad {
+      stroke: var(--rating-bar-bad);
+    }
+  }
+}
